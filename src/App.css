@@ -1,5 +1,30 @@
 .App {
   text-align: center;
+  width: 500px;
+  margin: 100px auto;
+  border: 1px solid black;
+  border-radius: 5px;
+  padding: 20px;
+}
+
+.list-item li {
+  padding-top: 5px;
+}
+
+.checkbox-custom {
+  padding: 10px;
+  vertical-align: middle;
+}
+
+.filter-options {
+  width: 100%;
+  text-align: center;
+}
+
+.select-all-btn {
+  padding: 10px;
+  margin-top: 10px;
+  border-radius: 5px;
 }
 
 .App-logo {
@@ -36,3 +61,4 @@
     transform: rotate(360deg);
   }
 }
+

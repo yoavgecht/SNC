@@ -1,13 +1,619 @@
-body {
-  margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-}
+/* Reset.less
+ * Props to Eric Meyer (meyerweb.com) for his CSS reset file. We're using an adapted version here	that cuts out some of the reset HTML elements we will never need here (i.e., dfn, samp, etc).
+ * ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- */
+ html,
+ body {
+   margin: 0;
+   padding: 0;
+ }
+ h1,
+ h2,
+ h3,
+ h4,
+ h5,
+ h6,
+ p,
+ blockquote,
+ pre,
+ a,
+ abbr,
+ acronym,
+ address,
+ cite,
+ code,
+ del,
+ dfn,
+ em,
+ img,
+ q,
+ s,
+ samp,
+ small,
+ strike,
+ strong,
+ sub,
+ sup,
+ tt,
+ var,
+ dd,
+ dl,
+ dt,
+ li,
+ ol,
+ ul,
+ fieldset,
+ form,
+ label,
+ legend,
+ button,
+ table,
+ caption,
+ tbody,
+ tfoot,
+ thead,
+ tr,
+ th,
+ td {
+   margin: 0;
+   padding: 0;
+   border: 0;
+   font-weight: normal;
+   font-style: normal;
+   font-size: 100%;
+   line-height: 1;
+   font-family: inherit;
+ }
+ table {
+   border-collapse: collapse;
+   border-spacing: 0;
+ }
+ ol,
+ ul {
+   list-style: none;
+ }
+ q:before,
+ q:after,
+ blockquote:before,
+ blockquote:after {
+   content: "";
+ }
+ html {
+   font-size: 100%;
+   -webkit-text-size-adjust: 100%;
+   -ms-text-size-adjust: 100%;
+ }
+ a:focus {
+   outline: thin dotted;
+ }
+ a:hover,
+ a:active {
+   outline: 0;
+ }
+ article,
+ aside,
+ details,
+ figcaption,
+ figure,
+ footer,
+ header,
+ hgroup,
+ nav,
+ section {
+   display: block;
+ }
+ audio,
+ canvas,
+ video {
+   display: inline-block;
+   *display: inline;
+   *zoom: 1;
+ }
+ audio:not([controls]) {
+   display: none;
+ }
+ sub,
+ sup {
+   font-size: 75%;
+   line-height: 0;
+   position: relative;
+   vertical-align: baseline;
+ }
+ sup {
+   top: -0.5em;
+ }
+ sub {
+   bottom: -0.25em;
+ }
+ img {
+   border: 0;
+   -ms-interpolation-mode: bicubic;
+ }
+ button,
+ input,
+ select,
+ textarea {
+   font-size: 100%;
+   margin: 0;
+   vertical-align: baseline;
+   *vertical-align: middle;
+ }
+ button,
+ input {
+   line-height: normal;
+   *overflow: visible;
+ }
+ button::-moz-focus-inner,
+ input::-moz-focus-inner {
+   border: 0;
+   padding: 0;
+ }
+ button,
+ input[type="button"],
+ input[type="reset"],
+ input[type="submit"] {
+   cursor: pointer;
+   -webkit-appearance: button;
+ }
+ input[type="search"] {
+   -webkit-appearance: textfield;
+   -webkit-box-sizing: content-box;
+   -moz-box-sizing: content-box;
+   box-sizing: content-box;
+ }
+ input[type="search"]::-webkit-search-decoration {
+   -webkit-appearance: none;
+ }
+ textarea {
+   overflow: auto;
+   vertical-align: top;
+ }
+ @keyframes spin {
+   0% {
+     transform: rotate(0deg);
+   }
+   100% {
+     transform: rotate(359deg);
+   }
+ }
+ @keyframes glow {
+   0%,
+   100% {
+     opacity: 1;
+   }
+   50% {
+     opacity: 0.5;
+   }
+ }
+ @font-face {
+   font-family: 'Nunito Sans';
+   font-style: italic;
+   font-weight: 400;
+   src: url(https://fonts.gstatic.com/s/nunitosans/v6/pe0oMImSLYBIv1o4X1M8cce4E9lKcw.ttf) format('truetype');
+ }
+ @font-face {
+   font-family: 'Nunito Sans';
+   font-style: normal;
+   font-weight: 400;
+   src: url(https://fonts.gstatic.com/s/nunitosans/v6/pe0qMImSLYBIv1o4X1M8cce9I94.ttf) format('truetype');
+ }
+ @font-face {
+   font-family: 'Nunito Sans';
+   font-style: normal;
+   font-weight: 800;
+   src: url(https://fonts.gstatic.com/s/nunitosans/v6/pe03MImSLYBIv1o4X1M8cc8aBc5tU1Q.ttf) format('truetype');
+ }
+ .force-wrap {
+   word-wrap: break-word;
+   word-break: break-all;
+   -ms-word-break: break-all;
+   word-break: break-word;
+   hyphens: auto;
+ }
+ .type-light {
+   font-family: 'Nunito Sans', "Helvetica Neue", Helvetica, Arial, sans-serif;
+   font-weight: 300;
+ }
+ .type-bold {
+   font-family: 'Nunito Sans', "Helvetica Neue", Helvetica, Arial, sans-serif;
+   font-weight: 800;
+ }
+ .type-italic {
+   font-family: 'Nunito Sans', "Helvetica Neue", Helvetica, Arial, sans-serif;
+   font-weight: 400;
+   font-style: italic;
+ }
+ * {
+   box-sizing: border-box;
+   -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+   -webkit-tap-highlight-color: transparent;
+ }
+ html,
+ button,
+ input,
+ textarea,
+ select {
+   outline: none;
+   -webkit-font-smoothing: antialiased;
+   -moz-osx-font-smoothing: grayscale;
+ }
+ body {
+   font-family: 'Nunito Sans', "Helvetica Neue", Helvetica, Arial, sans-serif;
+   font-style: 400;
+   color: #333;
+   font-size: 16px;
+ }
+ h1,
+ h2,
+ h3,
+ h4,
+ h5,
+ h6 {
+   font-family: 'Nunito Sans', "Helvetica Neue", Helvetica, Arial, sans-serif;
+   font-style: 400;
+   margin: 0;
+   padding: 0;
+ }
+ h1 {
+   font-size: 40px;
+   line-height: 48px;
+ }
+ h2 {
+   font-size: 28px;
+   line-height: 32px;
+ }
+ h3 {
+   font-size: 24px;
+   line-height: 28px;
+ }
+ h4 {
+   font-size: 20px;
+   line-height: 24px;
+ }
+ h5 {
+   font-size: 14px;
+   line-height: 20px;
+   color: #ccc;
+   text-transform: uppercase;
+ }
+ h6 {
+   color: #aaa;
+ }
+ p {
+   font-size: 16px;
+   line-height: 24px;
+ }
+ sub,
+ sup {
+   font-size: 0.8em;
+ }
+ sub {
+   bottom: -0.2em;
+ }
+ sup {
+   top: -0.2em;
+ }
+ b {
+   font-weight: bold;
+ }
+ em {
+   font-style: italic;
+ }
+ input[type="text"],
+ input[type="email"],
+ input[type="password"],
+ textarea {
+   font-size: 14px;
+   line-height: 20px;
+   font-family: 'Nunito Sans', "Helvetica Neue", Helvetica, Arial, sans-serif;
+   font-style: 400;
+   padding: 0.75rem 0;
+   line-height: 1.5rem !important;
+   border: none;
+   border-radius: 0;
+   box-sizing: border-box;
+   color: #333;
+   outline: none;
+ }
+ input[type="text"] ::placeholder,
+ input[type="email"] ::placeholder,
+ input[type="password"] ::placeholder,
+ textarea ::placeholder {
+   color: #778b91;
+ }
+ input[type="text"][disabled],
+ input[type="email"][disabled],
+ input[type="password"][disabled],
+ textarea[disabled] {
+   opacity: 0.5;
+ }
+ input:-webkit-autofill {
+   -webkit-box-shadow: 0 0 0 1000px white inset;
+ }
+ .checkbox {
+   display: inline-block;
+   height: 3rem;
+   position: relative;
+   vertical-align: middle;
+   width: 44px;
+ }
+ .checkbox input[type="checkbox"] {
+   font-size: 1em;
+   visibility: hidden;
+ }
+ .checkbox input[type="checkbox"] + span:before {
+   position: absolute;
+   top: 50%;
+   right: auto;
+   bottom: auto;
+   left: 50%;
+   width: 0.85em;
+   height: 0.85em;
+   transform: translate3d(-50%, -50%, 0);
+   background: transparent;
+   box-shadow: #2cc5d2 0 0 0 1px inset;
+   content: '';
+   display: block;
+ }
+ .checkbox input[type="checkbox"]:checked + span:before {
+   font-size: 16px;
+   line-height: 24px;
+   box-shadow: none;
+   color: #2cc5d2;
+   margin-top: -1px;
+   font-family: 'percolate';
+   speak: none;
+   font-style: normal;
+   font-weight: normal;
+   font-variant: normal;
+   text-transform: none;
+   line-height: 1;
+   -webkit-font-smoothing: antialiased;
+   -moz-osx-font-smoothing: grayscale;
+   content: "\e65e";
+ }
+ .input-symbol {
+   display: inline-block;
+   position: relative;
+ }
+ .input-symbol.error [class^="icon-"],
+ .input-symbol.error [class*=" icon-"] {
+   color: #ff4400;
+ }
+ .input-symbol [class^="icon-"],
+ .input-symbol [class*=" icon-"] {
+   left: 1em;
+ }
+ .input-symbol input {
+   padding-left: 3em;
+ }
+ .input-symbol input {
+   width: 100%;
+ }
+ .input-symbol input:focus + [class^="icon-"],
+ .input-symbol input:focus + [class*=" icon-"] {
+   color: #2cc5d2;
+ }
+ .input-symbol [class^="icon-"],
+ .input-symbol [class*=" icon-"] {
+   transition: all 300ms ease-in;
+   transform: translate3d(0, -50%, 0);
+   background: transparent;
+   color: #aaa;
+   font-size: 1em;
+   height: 1em;
+   position: absolute;
+   top: 50%;
+   width: 1em;
+ }
 
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
-}
+ [class^="icon-"],
+ [class*=" icon-"] {
+   font-family: "percolate";
+   speak: none;
+   font-style: normal;
+   font-weight: normal;
+   font-variant: normal;
+   text-transform: none;
+   line-height: 1;
+   /* Better Font Rendering =========== */
+   -webkit-font-smoothing: antialiased;
+   -moz-osx-font-smoothing: grayscale;
+ }
+
+ a {
+   transition: all 200ms ease-in;
+   color: #5db9ff;
+   cursor: pointer;
+   text-decoration: none;
+ }
+ a:hover {
+   color: #239da8;
+ }
+ a:active {
+   color: #555;
+ }
+ a:focus {
+   outline: none;
+ }
+ .list-heading {
+   letter-spacing: 0.3em;
+   text-indent: 0.3em;
+   text-transform: uppercase;
+   font-family: 'Nunito Sans', "Helvetica Neue", Helvetica, Arial, sans-serif;
+   font-weight: 800;
+   font-size: 11px;
+   padding-left: 15px;
+   line-height: 40px;
+   background: #f8f8f8;
+   color: #aaa;
+ }
+ .list-heading .icon-sync {
+   opacity: 1;
+   animation: spin 2s infinite linear;
+   display: inline-block;
+   margin-right: 4px;
+ }
+ .list-item {
+   font-size: 14px;
+   line-height: 20px;
+   display: flex;
+   flex-wrap: wrap;
+   height: 3rem;
+   width: 100%;
+   background: white;
+   transition: all ease-out 150ms;
+   padding: 10px;
+ }
+ .list-item .title {
+   overflow: hidden;
+   text-overflow: ellipsis;
+   white-space: nowrap;
+   flex: 1;
+ }
+ .list-item input[type="text"] {
+   background: transparent;
+   width: 100%;
+ }
+ .list-item input[type="text"]:focus {
+   cursor: text;
+ }
+ .list-item .actions {
+   transition: all 200ms ease-in;
+   padding-right: 20px;
+ }
+ .list-item .actions a {
+   display: inline-block;
+   vertical-align: top;
+   text-align: center;
+   color: #eee;
+ }
+ .list-item .actions a:hover {
+   color: #2cc5d2;
+ }
+ .list-item .actions a:active {
+   color: #555;
+ }
+ .list-item .actions [class^="icon-"] {
+   font-size: 16px;
+   line-height: 24px;
+   line-height: 3rem;
+   text-align: center;
+ }
+ .list-item.TASK_PINNED .icon-star {
+   color: #2cc5d2;
+ }
+ .list-item.TASK_ARCHIVED input[type="text"] {
+   color: #aaa;
+ }
+ .list-item:hover {
+   background-image: linear-gradient(to bottom, #e5f9f7 0%, #f0fffd 100%);
+ }
+ .list-item:hover .checkbox {
+   cursor: pointer;
+ }
+ .list-item + .list-item {
+   border-top: 1px solid #f0f9fb;
+ }
+ .list-item.checked input[type="text"] {
+   color: #ccc;
+   text-decoration: line-through;
+ }
+ .list-item.checked .delete-item {
+   display: inline-block;
+ }
+ .loading-item {
+   height: 3rem;
+   width: 100%;
+   background: white;
+   display: flex;
+   align-items: center;
+   line-height: 1rem;
+   padding-left: 16px;
+ }
+ .loading-item .glow-checkbox,
+ .loading-item .glow-text span {
+   animation: glow 1.5s ease-in-out infinite;
+   background: #eee;
+   color: transparent;
+   cursor: progress;
+   display: inline-block;
+ }
+ .loading-item .glow-checkbox {
+   margin-right: 16px;
+   width: 12px;
+   height: 12px;
+ }
+ .loading-item + .loading-item {
+   border-top: 1px solid #f0f9fb;
+ }
+ .list-items {
+   position: relative;
+   background: white;
+   min-height: 288px;
+ }
+ .list-items .select-placeholder {
+   border: none;
+   width: 48px;
+ }
+ .wrapper-message {
+   position: absolute;
+   top: 45%;
+   right: 0;
+   bottom: auto;
+   left: 0;
+   width: auto;
+   height: auto;
+   transform: translate3d(0, -50%, 0);
+   text-align: center;
+ }
+ .wrapper-message [class^="icon-"],
+ .wrapper-message [class*=" icon-"] {
+   font-size: 48px;
+   line-height: 56px;
+   color: #2cc5d2;
+   display: block;
+ }
+ .wrapper-message .title-message {
+   font-size: 16px;
+   line-height: 24px;
+   font-family: 'Nunito Sans', "Helvetica Neue", Helvetica, Arial, sans-serif;
+   font-weight: 800;
+   color: #555;
+ }
+ .wrapper-message .subtitle-message {
+   font-size: 14px;
+   line-height: 20px;
+   color: #666;
+ }
+ .page.lists-show {
+   min-height: 100vh;
+   background: white;
+ }
+ .page.lists-show nav {
+   background: #d3edf4;
+   padding: 1.5rem 1.25rem;
+   text-align: center;
+ }
+ @media screen and (min-width: 40em) {
+   .page.lists-show nav {
+     text-align: left;
+   }
+ }
+ .page.lists-show nav .title-page {
+   font-size: 20px;
+   line-height: 24px;
+   line-height: 2rem;
+   cursor: pointer;
+   white-space: nowrap;
+ }
+ .page.lists-show nav .title-page .title-wrapper {
+   overflow: hidden;
+   text-overflow: ellipsis;
+   white-space: nowrap;
+   font-family: 'Nunito Sans', "Helvetica Neue", Helvetica, Arial, sans-serif;
+   font-weight: 800;
+   color: #1c3f53;
+   display: inline-block;
+   vertical-align: top;
+   max-width: 100%;
+ }
